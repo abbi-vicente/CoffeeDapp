@@ -1,0 +1,17 @@
+const hre = require("hardhat");
+
+async function main() {
+	const BuyMeACoffee = await hre.ethers.getContractFactory("BuyMeACoffee");
+	const buyMeACoffee = await BuyMeACoffee.deploy();
+
+	await buyMeACoffee.deployed();
+
+	console.log(`Contract deployed to ${buyMeACoffee.address}`);
+}
+
+main().catch((error) => {
+	console.error(error);
+	process.exitCode = 1;
+});
+
+// 0x158454fC837028165c5d3dAAEc76edd06FA6c5F2
